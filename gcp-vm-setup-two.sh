@@ -12,13 +12,13 @@ sudo echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFXdAzn53i+OygyKItq8TF4GSW0cS7g24
 
 # install zsh
 # sudo apt update
-sudo apt install zsh
+sudo apt install -y zsh
 
 # make zsh the default shell
 sudo chsh -s $(which zsh)
 
 # install oh-my-zsh
-sudo apt install git
+sudo apt install -y git
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 source ~/.zshrc
