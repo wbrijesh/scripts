@@ -11,7 +11,7 @@ sudo chmod 600 /root/.ssh/authorized_keys
 echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFXdAzn53i+OygyKItq8TF4GSW0cS7g24cOHVKEkuR4Z brijesh@wawdhane.com" >> /root/.ssh/authorized_keys
 
 # install zsh
-sudo apt update
+# sudo apt update
 sudo apt install zsh
 
 # make zsh the default shell
