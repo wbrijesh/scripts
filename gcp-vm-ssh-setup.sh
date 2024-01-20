@@ -8,14 +8,14 @@ sudo touch /root/.ssh/authorized_keys
 sudo chmod 600 /root/.ssh/authorized_keys
 
 # add my public key to authorized_keys
-echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFXdAzn53i+OygyKItq8TF4GSW0cS7g24cOHVKEkuR4Z brijesh@wawdhane.com" >> /root/.ssh/authorized_keys
+sudo echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFXdAzn53i+OygyKItq8TF4GSW0cS7g24cOHVKEkuR4Z brijesh@wawdhane.com" >> /root/.ssh/authorized_keys
 
 # install zsh
 # sudo apt update
 sudo apt install zsh
 
 # make zsh the default shell
-chsh -s $(which zsh)
+sudo chsh -s $(which zsh)
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
