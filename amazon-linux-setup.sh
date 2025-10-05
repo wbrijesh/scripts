@@ -89,3 +89,9 @@ echo "Restarting SSH service to load new configurations."
 systemctl restart sshd
 
 echo "Setup complete. You should now be able to SSH as 'brijesh' via key."
+
+wget https://github.com/binwiederhier/ntfy/releases/download/v2.14.0/ntfy_2.14.0_linux_arm64.tar.gz
+tar zxvf ntfy_2.14.0_linux_arm64.tar.gz
+sudo cp -a ntfy_2.14.0_linux_arm64/ntfy /usr/bin/ntfy
+sudo mkdir /etc/ntfy && sudo cp ntfy_2.14.0_linux_arm64/{client,server}/*.yml /etc/ntfy
+ntfy publish brijeshwawdhane "Server configured: ${PUBLIC_IP}" --title "EC2 Setup Complete" --priority high
