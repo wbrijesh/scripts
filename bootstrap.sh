@@ -11,7 +11,7 @@ if ! command -v gum &> /dev/null; then
     exit 1
 fi
 
-gum spin --spinner dot --title "Downloading installer..." -- curl -fsSL "$INSTALLER_URL" -o "$INSTALLER_FILE"
+gum spin --spinner dot --title "Downloading installer..." -- sh -c "curl -fsSL '$INSTALLER_URL' -o '$INSTALLER_FILE'"
 chmod +x "$INSTALLER_FILE"
 
 clear
