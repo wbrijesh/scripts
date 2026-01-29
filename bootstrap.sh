@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Save script to temp file and re-execute with proper stdin
-if [ "$BOOTSTRAP_REEXEC" != "1" ]; then
-    TEMP_SCRIPT="/tmp/bootstrap-$$.sh"
-    cat > "$TEMP_SCRIPT" << 'BOOTSTRAP_EOF'
-#!/bin/bash
-
 set -e
 
 INSTALLER_URL="https://raw.githubusercontent.com/wbrijesh/scripts/refs/heads/main/tiramai-bizinsights-installer.sh"
@@ -52,8 +46,8 @@ gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
 # Check if gum is installed
 if ! command -v gum &> /dev/null; then
     echo "Installer has unmet dependencies."
-    read -p "Would you like to install them? (y/n) " -n 1 -r
-    echo
+    printf "Would you like to install them? (y/n) "
+    read -r REPLY </dev/tty
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         install_gum
     else
@@ -67,8 +61,3 @@ chmod +x "$INSTALLER_FILE"
 
 clear
 exec "$INSTALLER_FILE"
-BOOTSTRAP_EOF
-    
-    chmod +x "$TEMP_SCRIPT"
-    BOOTSTRAP_REEXEC=1 exec "$TEMP_SCRIPT"
-fi
