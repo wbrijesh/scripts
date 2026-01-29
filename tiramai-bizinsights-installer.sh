@@ -2,11 +2,6 @@
 
 set -e
 
-# If stdin is not a terminal, re-execute with proper stdin
-if [ ! -t 0 ]; then
-    exec bash "$0" < /dev/tty
-fi
-
 # Check if gum is installed
 if ! command -v gum &> /dev/null; then
     echo "Error: gum is not installed. Install it from https://github.com/charmbracelet/gum"
